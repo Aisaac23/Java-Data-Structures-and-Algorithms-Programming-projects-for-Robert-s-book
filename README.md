@@ -5,11 +5,13 @@ Java Data Structures and Algorithms Programming projects from Robert Lafore's Bo
 **Chapter 2 (Arrays):
 
 OrderedArray.java
+
 HighArray.java
 
 **Chapter 3 (Simple sorting):
 
 bubbleSort.java
+
 insertSort.java
 
 **Chapter 5 (Linked Lists):
