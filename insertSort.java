@@ -86,31 +86,44 @@ public void noDups()
 //************************* Programming Projects: 3.6 *****************
 public void noDupsInsertSort()             
 {
-    int dups = 0;
-    for(int out=0; out<nElems-1; out++)
-    {
+    int in, out;
 
-        int B = out, C = out + 1;
-        while(a[out] == a[C])
+    for(out=1; out<nElems; out++)
+    {
+        long temp = a[out];    
+        in = out;                      
+        while(in>0 && a[in-1] >= temp) 
         {
-            C++;
-            dups++;
+            if(a[in-1] == temp)
+                temp = -1;
+            a[in] = a[in-1];  
+            --in;            
         }
-        int D = B;
-        while(B + 1 < C  && C < nElems)
+        a[in] = temp;
+    } 
+    
+    System.out.println("Replaced  with -1: ");
+    this.display();
+    
+    int B = 0, C = 0, dups = 0;
+    for (int i = 0; i < nElems; i++)
+    {
+        while(C < nElems)
         {
-            B++;
-            a[B] = a[C];
-            if(C < nElems - 1)
-                if(a[C] == a[C+1])
-                {
-                    C++;
-                    dups++;
-                }
-            C++;
+            if(a[C] == -1)
+            {
+                C++;
+                dups++;
+            }
+            else
+            {
+                a[i] = a[C];
+                i++;
+                C++; 
+            }
         }
     }
-    nElems = nElems - dups;
+    nElems = nElems - dups;      
 }
 //************************* Programming Projects: 3.3 *****************
 
