@@ -14,7 +14,7 @@ bubbleSort.java
 
 insertSort.java
 
-**Chapter 4 (Simple sorting):
+**Chapter 4 (Staks and Queues):
 
 queue.java
 
