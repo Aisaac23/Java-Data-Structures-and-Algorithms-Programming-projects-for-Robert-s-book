@@ -14,6 +14,12 @@ bubbleSort.java
 
 insertSort.java
 
+**Chapter 4 (Simple sorting):
+queue.java
+SuperMarket.java
+PriorityQ.java
+
+
 **Chapter 5 (Linked Lists):
 
 CircularList.java
