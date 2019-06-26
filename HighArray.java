@@ -1,4 +1,3 @@
-´´´Java
 package higharray;
 
 // highArray.java
@@ -68,30 +67,27 @@ class HighArray
         return value; 
     }  
  
-  public long deleteMax()
-  {
-    long value = -1;
-    int pm = 0, fm;
-    if(nElems > 0)                          
-    {
-        for(fm = 0; fm < nElems; fm++)   
-            if(a[fm] > value)
-            {
-                value = a[fm];
+   public long deleteMax()//Programming projects: 2.2      
+   {
+      long value = -1;
+      int pm = 0, fm;
+      if(nElems > 0)                          
+      {
+         value = this.getMax();
+         for(fm = 0; fm < nElems; fm++)
+            if(a[fm] == value)
                 pm = fm;
-            }
-        
-        for(int k = pm; k < nElems-1; k++)
+         
+         for(int k = pm; k < nElems-1; k++)
             a[k] = a[k+1];
-        nElems--;
-        return value;
-    }
-    else
-        return -1;
-   
-   } 
+         nElems--;
+         return value;
+      }
+      else
+         return -1;
+   }
   
-    public int noDups()
+    public int noDups() // Programming projects 2.6
     {
     int dups = 0;
 
@@ -179,4 +175,3 @@ class HighArrayApp
     
       }  // end main()
    }  // end class HighArray
-´´´
