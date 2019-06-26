@@ -13,6 +13,7 @@ Java Data Structures and Algorithms Programming projects from Robert Lafore's Bo
 ## Chapter 3 (Simple sorting):
 
  1. bubbleSort.java
+    - Programming projects: 3.1 - 3.4
  2. insertSort.java
 
 ## Chapter 4 (Staks and Queues):
