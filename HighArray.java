@@ -1,85 +1,87 @@
+´´´Java
 package higharray;
 
 // highArray.java
 // demonstrates array class with high-level interface
 // to run this program: C>java HighArray
 ////////////////////////////////////////////////////////////////
+
 class HighArray
 {
-   private long[] a;                 // ref to array a
-   private int nElems;               // number of data items
-   //-----------------------------------------------------------
-    public HighArray(int max)         // constructor
+   private long[] a;
+   private int nElems;         
+   
+    public HighArray(int max)    
     {
-        a = new long[max];                 // create the array
-        nElems = 0;                        // no items yet
+        a = new long[max];               
+        nElems = 0;             
     }
-   //-----------------------------------------------------------
+   
     public boolean find(long searchKey)
-    {                              // find specified value
+    {                            
         int j;
-        for(j=0; j<nElems; j++)            // for each element,
-            if(a[j] == searchKey)           // found item?
-                break;                       // exit loop before end
-        if(j == nElems)                    // gone to end?
-            return false;                   // yes, can't find it
+        for(j=0; j<nElems; j++)            
+            if(a[j] == searchKey)           
+                break;                     
+        if(j == nElems)                   
+            return false;                   
         else
-            return true;                    // no, found it
-    }  // end find()
-   //-----------------------------------------------------------
-    public void insert(long value)    // put element into array
-    {
-        a[nElems] = value;             // insert it
-        nElems++;                      // increment size
+            return true;                 
     }
-   //-----------------------------------------------------------
+   
+    public void insert(long value)    
+    {
+        a[nElems] = value;
+        nElems++;
+    }
+   
     public boolean delete(long value)
     {
         int j;
-        for(j = 0; j < nElems; j++)        // look for it
+        for(j = 0; j < nElems; j++)       
             if(value == a[j])
                 break;
-        if(j == nElems)                  // can't find it
+        if(j == nElems)                  
             return false;
-        else                           // found it
+        else                        
         {
-            for(int k = j; k < nElems-1; k++) // move higher ones down
+            for(int k = j; k < nElems-1; k++)
                 a[k] = a[k+1];
-            nElems--;                   // decrement size
+            nElems--;
             return true;
         }
-      }  // end delete()
-   //-----------------------------------------------------------
-   public void display()             // displays array contents
-      {
-      for(int j=0; j<nElems; j++)       // for each element,
-         System.out.print(a[j] + " ");  // display it
-      System.out.println("");
       }
-    //-----------------------------------------------------------
-   public long getMax()//Programming projects 2.1      
-    {
+   
+   public void display()           
+   {
+      for(int j=0; j<nElems; j++) 
+         System.out.print(a[j] + " "); 
+      System.out.println("");
+   }
+   
+   public long getMax()//Programming projects: 2.1      
+   {
         long value = -1;
-        for(int j=0; j<nElems; j++)        // look for it
+        for(int j=0; j<nElems; j++)       
            if( a[j] > value )
                value = a[j];
         return value; 
-    }  // end getMax()
-   //-----------------------------------------------------------
+    }  
+ 
   public long deleteMax()
   {
     long value = -1;
-    int pm = 0, fm;//fm = finding max
+    int pm = 0, fm;
     if(nElems > 0)                          
     {
-        for(fm = 0; fm < nElems; fm++)        // look for it, pm = position of max
+        for(fm = 0; fm < nElems; fm++)   
             if(a[fm] > value)
             {
                 value = a[fm];
                 pm = fm;
             }
         
-        for(int k = pm; k < nElems-1; k++) // move higher ones down
+        for(int k = pm; k < nElems-1; k++)
             a[k] = a[k+1];
         nElems--;
         return value;
@@ -87,9 +89,7 @@ class HighArray
     else
         return -1;
    
-   }  // end delete()
-   
-   //-----------------------------------------------------------
+   } 
   
     public int noDups()
     {
@@ -108,21 +108,18 @@ class HighArray
     return dups;
   }
           
-  //-----------------------------------------------------------
-   }  // end class HighArray
+}// end class HighArray
 
- //-----------------------------------------------------------
-   
-////////////////////////////////////////////////////////////////
+
 class HighArrayApp
 {
     public static void main(String[] args)
     {
-        int maxSize = 100;            // array size
-        HighArray arr;                // reference to array
-        arr = new HighArray(maxSize); // create the array
+        int maxSize = 100;            
+        HighArray arr;            
+        arr = new HighArray(maxSize);
 
-        arr.insert(65);               // insert items
+        arr.insert(65);              
         arr.insert(99);
         arr.insert(44);
         arr.insert(55);
@@ -182,3 +179,4 @@ class HighArrayApp
     
       }  // end main()
    }  // end class HighArray
+´´´
