@@ -28,17 +28,10 @@ class OrdArray
       public long[] merge(long[] arr1, long[] arr2)// Programming project 2.5
       {
          int topMin, topMax;
-         if(arr1.length <= arr2.length)
-         {
-            topMin = arr1.length;
-            topMax = arr2.length;
-         }
-         else
-         {
-            topMin = arr2.length;
-            topMax = arr1.length;
-         }
-        
+         
+         topMin = (arr1.length <= arr2.length) ? arr1.length : arr2.length;
+         topMax = (arr1.length <= arr2.length) ? arr2.length : arr1.length;
+            
          OrdArray mrg = new OrdArray(topMax+topMin);
         
          for (int i = 0; i < topMin; i++)
