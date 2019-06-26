@@ -4,24 +4,24 @@
 //--------------------------------------------------------------
 class ArrayIns
    {
-   private long[] a;                 // ref to array a
-   private int nElems;               // number of data items
+   private long[] a;                
+   private int nElems;
 //--------------------------------------------------------------
-   public ArrayIns(int max)          // constructor
+   public ArrayIns(int max)          
       {
-      a = new long[max];                 // create the array
-      nElems = 0;                        // no items yet
+      a = new long[max];                
+      nElems = 0;   
       }
 //--------------------------------------------------------------
-   public void insert(long value)    // put element into array
+   public void insert(long value)  
       {
-      a[nElems] = value;             // insert it
-      nElems++;                      // increment size
+      a[nElems] = value; 
+      nElems++;    
       }
 //--------------------------------------------------------------
    
 //************************* Programming Projects: 3.2 *****************
-public long median()    // returns the median
+public long median()    
 {
     long[] backup = new long[this.nElems]; // we make a copy so we don't affect the array we're working with
     long med;
@@ -77,10 +77,10 @@ public void noDups()
 }
 //************************************************************************
 
-   public void display()             // displays array contents
+   public void display()             
       {
-      for(int j=0; j<nElems; j++)       // for each element,
-         System.out.print("["+a[j] + "]");  // display it
+      for(int j=0; j<nElems; j++)       
+         System.out.print("["+a[j] + "]"); 
       System.out.println("");
       }
 //************************* Programming Projects: 3.6 *****************
@@ -163,28 +163,29 @@ public void insertionSort()
 {
     int in, out;
 
-    for(out=1; out<nElems; out++)     // out is dividing line
+    for(out=1; out<nElems; out++)     
     {
-        long temp = a[out];            // remove marked item
-        in = out;                      // start shifts at out
-        while(in > 0 && a[in-1] >= temp) // until one is smaller,
+        long temp = a[out];           
+        in = out;                     
+        while(in > 0 && a[in-1] >= temp) 
         {
-                a[in] = a[in-1];            // shift item to right
+                a[in] = a[in-1];            
                 --in;
         }
         a[in] = temp;
     }  
-}  // end insertionSort()
-//--------------------------------------------------------------
+}  
+
+   
    }  // end class ArrayIns
-////////////////////////////////////////////////////////////////
+
 class InsertSortApp
    {
    public static void main(String[] args)
       {
-      int maxSize = 100;            // array size
-      ArrayIns arr, arr2;                 // reference to array
-      arr = new ArrayIns(maxSize);  // create the array
+      int maxSize = 100;           
+      ArrayIns arr, arr2;                
+      arr = new ArrayIns(maxSize);  
       arr2 = new ArrayIns(maxSize);
       for (int i = 0; i < maxSize-10; i++)
             arr.insert((long)(Math.random()*maxSize));
