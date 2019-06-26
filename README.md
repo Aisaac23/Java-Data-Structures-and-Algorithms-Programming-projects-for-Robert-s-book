@@ -6,9 +6,9 @@ Java Data Structures and Algorithms Programming projects from Robert Lafore's Bo
 ## Chapter 2 (Arrays):
 
   1. OrderedArray.java
-     - Programming projects:
+     - Programming projects: 2.4 - 2.5
   2. HighArray.java
-     - Programming projects: 2.1, 2.2, 2.3, 2.6
+     - Programming projects: 2.1 - 2.2 - 2.3 - 2.6
 
 ## Chapter 3 (Simple sorting):
 
