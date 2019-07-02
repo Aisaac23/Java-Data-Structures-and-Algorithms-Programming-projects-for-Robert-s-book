@@ -1,29 +1,12 @@
 package sortedList;
 
 // sortedList.java
+
+import Links.Link;
+
 // demonstrates sorted list
 // to run this program: C>java SortedListApp
 ////////////////////////////////////////////////////////////////
-class Link
-{
-    private long dData;                  
-    private Link next;                   
-   
-    public Link(long dd)                
-    { dData = dd; }
-   
-    public void displayLink()           
-    { System.out.print("{" + dData + "}"); }
-
-    public long getdData() { return dData; }
-
-    public Link getNext() { return next; }
-
-    public void setdData(long dData) { this.dData = dData; }
-
-    public void setNext(Link next) { this.next = next; }
-      
-}
 
 class SortedList
 {
@@ -82,6 +65,19 @@ class PriorityLinkedList extends SortedList
     public void peekMin()
     {this.getFirst().displayLink();}
     
+    public long size()
+    {
+        Link current = this.getFirst();
+        long size = 0;
+        
+        while(current != null)
+        {
+            current = current.getNext();
+            size++;
+        }
+        return size;
+    }
+    
 }
 
 class SortedListApp
@@ -108,5 +104,8 @@ class SortedListApp
         
         System.out.print("@Top: ");
         linkedQueue.peekMin();
+        
+        System.out.println("");
+        System.out.println("Size:" + linkedQueue.size());
     } 
 }
