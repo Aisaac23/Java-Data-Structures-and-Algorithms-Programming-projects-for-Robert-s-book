@@ -1,51 +1,14 @@
 package doublyLinked;
 
+import Links.*;
 // doublyLinked.java
 // demonstrates doubly-linked list
 // to run this program: C>java DoublyLinkedApp
 ////////////////////////////////////////////////////////////////
-class Link
-{
-    private long dData;
-    private Link next;
-    private Link previous;
-
-    public Link(long d)
-    { dData = d; }
-    
-    public void displayLink()
-    { System.out.print("{" + dData + "}"); }
-
-    public long getdData() {
-        return dData;
-    }
-
-    public void setdData(long dData) {
-        this.dData = dData;
-    }
-
-    public Link getNext() {
-        return next;
-    }
-
-    public void setNext(Link next) {
-        this.next = next;
-    }
-
-    public Link getPrevious() {
-        return previous;
-    }
-
-    public void setPrevious(Link previous) {
-        this.previous = previous;
-    }
-
-}
-
 class DoublyLinkedList
 {
-    private Link first;
-    private Link last;
+    private DoubleLink first;
+    private DoubleLink last;
     
     public DoublyLinkedList()
     {
@@ -58,7 +21,7 @@ class DoublyLinkedList
     
     public void insertFirst(long dd)
     {
-        Link newLink = new Link(dd);
+        DoubleLink newLink = new DoubleLink(dd);
 
         if( isEmpty() )
             last = newLink;
@@ -70,7 +33,7 @@ class DoublyLinkedList
     
     public void insertLast(long dd)
     {
-        Link newLink = new Link(dd);
+        DoubleLink newLink = new DoubleLink(dd);
         if( isEmpty() )
             first = newLink;
         else
@@ -81,9 +44,9 @@ class DoublyLinkedList
         last = newLink;
     }
 
-    public Link deleteFirst()         
+    public DoubleLink deleteFirst()         
     {                             
-        Link temp = first;
+        DoubleLink temp = first;
         if(first.getNext() == null)
             last = null;
         else
@@ -92,9 +55,9 @@ class DoublyLinkedList
         return temp;
     }
 
-    public Link deleteLast()
+    public DoubleLink deleteLast()
     {
-        Link temp = last;
+        DoubleLink temp = last;
         if(first.getNext() == null)        
             first = null; 
         else
@@ -113,7 +76,6 @@ class DoublyLinkedList
                 return false; 
         }
         Link newLink = new Link(dd); 
-
         if(current==last) 
         {
             newLink.next = null; 
@@ -128,7 +90,6 @@ class DoublyLinkedList
         current.next = newLink;  
         return true;  
     }
-
     public Link deleteKey(long key)
     {                             
         Link current = first; 
@@ -148,7 +109,6 @@ class DoublyLinkedList
             current.next.previous = current.previous;
         return current;
     }
-
     public void displayBackward()
     {
         System.out.print("List (last-->first): ");
@@ -164,7 +124,7 @@ class DoublyLinkedList
     public void displayForward()
     {
         System.out.print("List (first-->last): ");
-        Link current = first;
+        DoubleLink current = first;
         while(current != null)
         {
             current.displayLink();
@@ -174,11 +134,11 @@ class DoublyLinkedList
         System.out.println("NULL");
     }
 
-    public Link getFirst() {
+    public DoubleLink getFirst() {
         return first;
     }
 
-    public Link getLast() {
+    public DoubleLink getLast() {
         return last;
     }
     
@@ -196,7 +156,7 @@ class LinkedDeQueue extends DoublyLinkedList
     
     public long size()
     {
-        Link current = this.getFirst();
+        DoubleLink current = this.getFirst();
         long size = 0;
         while(current != null)
         {
