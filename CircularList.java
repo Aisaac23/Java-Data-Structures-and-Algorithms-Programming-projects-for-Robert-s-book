@@ -36,11 +36,6 @@ public class CircularList {
         }
     }
     
-    public void step(CustomLink move)
-    {
-        move = (CustomLink) move.getNext();
-    }
-    
     public long find( double dd )
     {
         long steps = -1;
@@ -52,16 +47,16 @@ public class CircularList {
             else
             {
                 long ref = toMove.getiData();
-                toMove = (CustomLink) toMove.getNext();//this.step(toMove);
+                toMove = (CustomLink) toMove.getNext();
                 steps++;
                 
                 while( toMove.getdData()!=dd && toMove.getiData()!=ref )
                 {
                     steps++;
-                    toMove = (CustomLink) toMove.getNext();//this.step(toMove);
+                    toMove = (CustomLink) toMove.getNext();
                 }
                 
-                return ( toMove.getdData()==dd ) ? steps : -1;
+                return ( toMove.getdData()==dd ) ? ++steps : -1;
             }
         }
         return steps;
@@ -85,12 +80,24 @@ public class CircularList {
             System.out.println("Empty list.");
     }
     
+    
+    
     public static void main(String[] args) {
         int maxSize = 100;
         CircularList Clist = new CircularList(); 
         for (int i = 0; i < maxSize/2; i++)
             Clist.insert(i, (long)(Math.random()*maxSize));
         Clist.display();
+        
+        for (int i = 0; i < maxSize; i++)
+        {
+            long toFind = (long)(Math.random()*maxSize);
+            long found = Clist.find(toFind);
+            if(found >= 0)
+                System.out.println("[" + toFind + "] found at: " + found + " steps from current node.");
+            else
+                System.out.println("[" + toFind + "] Not found");
+        }
         
     }
     
