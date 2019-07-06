@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package circularlist;
+package LinkedLists;
 
 public class CircularList {
 
@@ -36,30 +36,25 @@ public class CircularList {
         }
     }
     
-    public long find( double dd )
+    public CustomLink find( double dd )
     {
-        long steps = -1;
         if( !this.isEmpty() )
         {
             CustomLink toMove = current;
             if( toMove.getdData() == dd )
-                return 0;
+                return toMove;
             else
             {
                 long ref = toMove.getiData();
                 toMove = (CustomLink) toMove.getNext();
-                steps++;
                 
                 while( toMove.getdData()!=dd && toMove.getiData()!=ref )
-                {
-                    steps++;
                     toMove = (CustomLink) toMove.getNext();
-                }
                 
-                return ( toMove.getdData()==dd ) ? ++steps : -1;
+                return ( toMove.getdData()==dd ) ? toMove : null;
             }
         }
-        return steps;
+        return null;
     }
     
     public void display()
@@ -80,7 +75,28 @@ public class CircularList {
             System.out.println("Empty list.");
     }
     
-    
+    public CustomLink delete(double dd)
+    {
+        if( !this.isEmpty() )
+        {
+            CustomLink toDelete, temp, prev;
+            toDelete = this.find(dd);
+            if( toDelete != null)
+            {
+                prev = current;
+                temp = (CustomLink) current.getNext();
+                while( temp.getiData() != toDelete.getiData() )
+                {
+                    prev = temp;
+                    temp = (CustomLink) temp.getNext();
+                }
+                prev.setNext(toDelete.getNext());
+                current = prev;
+                return toDelete;
+            }
+        }
+        return null;
+    }
     
     public static void main(String[] args) {
         int maxSize = 100;
@@ -92,12 +108,25 @@ public class CircularList {
         for (int i = 0; i < maxSize; i++)
         {
             long toFind = (long)(Math.random()*maxSize);
-            long found = Clist.find(toFind);
-            if(found >= 0)
-                System.out.println("[" + toFind + "] found at: " + found + " steps from current node.");
+            CustomLink found = Clist.find(toFind);
+            if(found != null)
+                System.out.println("[" + toFind + "] found at the key: " + found.getiData() );
             else
                 System.out.println("[" + toFind + "] Not found");
         }
+        System.out.println("");
+        System.out.println("Deleting");
+        for (int i = 0; i < maxSize; i++)
+        {
+            long toFind = (long)(Math.random()*maxSize);
+            CustomLink found = Clist.delete(toFind);
+            if(found != null)
+                System.out.println("[" + toFind + "] deleted at the key: " + found.getiData() );
+            else
+                System.out.println("[" + toFind + "] Not found");
+        }
+        System.out.println("");
+        Clist.display();
         
     }
     
