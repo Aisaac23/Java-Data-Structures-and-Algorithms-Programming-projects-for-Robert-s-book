@@ -13,6 +13,16 @@ public class CircularList {
     {
         this.current = null;
     }
+
+    public CustomLink getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(CustomLink current) {
+        this.current = current;
+    }
+    
+    
     
     public boolean isEmpty()
     {
@@ -70,6 +80,7 @@ public class CircularList {
                 temp = (CustomLink) temp.getNext();
             }
             temp.displayLink();
+            System.out.println("");
         }
         else
             System.out.println("Empty list.");
@@ -127,6 +138,52 @@ public class CircularList {
         }
         System.out.println("");
         Clist.display();
+        
+        System.out.println("Circular Stack: ");
+        
+        CircularStack cStack = new CircularStack();
+        System.out.println("Inserting....");
+        for (int i = 0; i < maxSize; i++)
+            cStack.insert(i, (long)(Math.random()*maxSize));   
+        cStack.display();
+        System.out.println("");
+        System.out.println("Deleting....");
+        for (int i = 0; i < maxSize; i++)
+        {
+            System.out.print("Peek first: ");
+            cStack.peekCurrent().displayLink();
+            System.out.print("Deleted:");
+            cStack.Pop().displayLink();
+            System.out.println("");
+        }
+        cStack.display();
+        
+        System.out.println("Circular Queue: ");
+        
+        CircularQueue CQueue = new CircularQueue();
+        
+        System.out.println("Inserting....");
+        for (int i = 0; i < maxSize; i++)
+            CQueue.insert(i, (long)(Math.random()*maxSize));
+        CQueue.display();
+        
+        System.out.print("Peek front:");
+        CQueue.peekFront().displayLink();
+        System.out.println("");
+        System.out.println("Peek Rear");
+        CQueue.peekRear().displayLink();
+        
+        System.out.println("");
+        System.out.println("Removing: ");
+        for (int i = 0; i < maxSize; i++)
+        {
+            System.out.print("Peek front: ");
+            CQueue.peekFront().displayLink();
+            System.out.print("Deleted:");
+            CQueue.Remove().displayLink();
+            System.out.println("");
+        }
+        CQueue.display();
         
     }
     
