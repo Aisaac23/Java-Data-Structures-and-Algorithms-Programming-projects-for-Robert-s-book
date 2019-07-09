@@ -9,18 +9,13 @@ package Links;
  *
  * @author isaac.huerta
  */
-public class DoubleLink 
+public class DoubleLink extends Link
 {
     private DoubleLink previous;
-    private DoubleLink next;    
-    private long dData;  
 
-    public DoubleLink(long dData) {
-        this.dData = dData;
+    public DoubleLink(long id) {
+        super(id);
     }
-    
-    public void displayLink()
-    { System.out.print("{" + dData + "}"); }
 
     public DoubleLink getPrevious() {
         return previous;
@@ -30,13 +25,5 @@ public class DoubleLink
         this.previous = previous;
     }
 
-    public DoubleLink getNext() {
-        return next;
-    }
-
-    public void setNext(DoubleLink next) {
-        this.next = next;
-    }
-    
     
 }
