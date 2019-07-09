@@ -50,8 +50,11 @@ class DoublyLinkedList
         if(first.getNext() == null)
             last = null;
         else
-            first.getNext().setPrevious(null);
-        first = first.getNext();
+        {   
+            DoubleLink prev = (DoubleLink)( first.getNext() );
+            prev.setPrevious(null);
+        }
+        first = (DoubleLink)first.getNext();
         return temp;
     }
 
@@ -128,7 +131,7 @@ class DoublyLinkedList
         while(current != null)
         {
             current.displayLink();
-            current = current.getNext();
+            current = (DoubleLink) current.getNext();
             System.out.print("<->");
         }
         System.out.println("NULL");
@@ -160,7 +163,7 @@ class LinkedDeQueue extends DoublyLinkedList
         long size = 0;
         while(current != null)
         {
-            current = current.getNext();
+            current = (DoubleLink)current.getNext();
             size++;
         }
         return size;
