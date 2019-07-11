@@ -185,6 +185,46 @@ public class CircularList {
         }
         CQueue.display();
         
+        System.out.println("CIRCULAR DOUBLE LINKED LIST: ");
+        CircularDoubleLkdLst CDlist = new CircularDoubleLkdLst(); 
+        for (int i = 0; i < maxSize/2; i++)
+            CDlist.insert(i, (long)(Math.random()*maxSize));
+        System.out.println("Backwards:");
+        CDlist.displayBackwards();
+        System.out.println("Forwards:");
+        CDlist.displayForwards();
+        
+        
+        System.out.println("");
+        System.out.println("Deleting");
+        /*for (int i = 0; i < maxSize/2; i++)
+        {
+            long toFind = (long)(Math.random()*maxSize);
+            CustomDoubleLink found = CDlist.delete(toFind);
+            if(found != null)
+                System.out.println("[" + toFind + "] deleted at the key: " + found.getiData() );
+            else
+                System.out.println("[" + toFind + "] Not found");
+        }*/
+        boolean swt = false;
+        for (int i = 0; i < maxSize/2; i++)
+        {
+            long toFind = (long)(Math.random()*maxSize);
+            CustomDoubleLink found;
+            if(swt)
+                found = CDlist.deleteLast();
+            else
+                found = CDlist.deleteFirst();
+            if(found != null)
+                System.out.println("[" + toFind + "] deleted at the key: " + found.getiData() );
+            else
+                System.out.println("[" + toFind + "] Not found");
+            swt = !swt;
+        }
+        
+        System.out.println("");
+        CDlist.displayForwards();
+        
     }
     
 }
