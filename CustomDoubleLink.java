@@ -13,9 +13,25 @@ import Links.DoubleLink;
  */
 public class CustomDoubleLink extends DoubleLink{
     
-    public CustomDoubleLink(long id) {
+    double dData;
+    
+    public CustomDoubleLink(long id, double dData) {
         super(id);
+        this.dData = dData;
+    }
+
+    public double getdData() {
+        return dData;
+    }
+
+    public void setdData(double dData) {
+        this.dData = dData;
     }
     
     
+    
+    @Override
+    public void displayLink() {
+        System.out.print("{" + this.getiData() + ":" + this.dData + "}");
+    }
 }
