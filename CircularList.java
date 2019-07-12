@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LinkedLists;
+package circularlist;
 
 public class CircularList {
 
@@ -186,9 +186,12 @@ public class CircularList {
         CQueue.display();
         
         System.out.println("CIRCULAR DOUBLE LINKED LIST: ");
-        CircularDoubleLkdLst CDlist = new CircularDoubleLkdLst(); 
+        DoubleLkdCircularLst CDlist = new DoubleLkdCircularLst(); 
         for (int i = 0; i < maxSize/2; i++)
             CDlist.insert(i, (long)(Math.random()*maxSize));
+        System.out.println("Backwards:");
+        CDlist.displayBackwards();
+        
         System.out.println("Backwards:");
         CDlist.displayBackwards();
         System.out.println("Forwards:");
@@ -196,8 +199,8 @@ public class CircularList {
         
         
         System.out.println("");
-        System.out.println("Deleting");
-        /*for (int i = 0; i < maxSize/2; i++)
+        System.out.println("Randomly Deleting...");
+        for (int i = 0; i < maxSize/2; i++)
         {
             long toFind = (long)(Math.random()*maxSize);
             CustomDoubleLink found = CDlist.delete(toFind);
@@ -205,7 +208,15 @@ public class CircularList {
                 System.out.println("[" + toFind + "] deleted at the key: " + found.getiData() );
             else
                 System.out.println("[" + toFind + "] Not found");
-        }*/
+        }
+        
+        System.out.println("Backwards:");
+        CDlist.displayBackwards();
+        System.out.println("Forwards:");
+        CDlist.displayForwards();
+        
+        System.out.println("");
+        System.out.println("Deleting from front and rear: ");
         boolean swt = false;
         for (int i = 0; i < maxSize/2; i++)
         {
