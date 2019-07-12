@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LinkedLists;
+package circularlist;
 
 /**
  *
- * @author Isaac
+ * @author isaac.huerta
  */
-public class CircularDoubleLkdLst {
-    
+public class DoubleLkdCircularLst {
     private CustomDoubleLink current;
-    public CircularDoubleLkdLst()
+    public DoubleLkdCircularLst()
     {
         this.current = null;
     }
@@ -121,30 +120,42 @@ public class CircularDoubleLkdLst {
         if( !this.isEmpty() )
         {
             CustomDoubleLink toDelete, temp, prev;
-            toDelete = this.find(dd);
-            if( toDelete != null)
+            toDelete = current;
+            long ref =  toDelete.getiData();
+            toDelete = (CustomDoubleLink) toDelete.getNext();
+            while( toDelete.getdData()!=dd && toDelete.getiData()!=ref )
+                    toDelete = (CustomDoubleLink) toDelete.getNext();
+            
+            
+            if( toDelete.getdData() == dd)
             {
                 toDelete.getPrevious().setNext( toDelete.getNext() );
-                toDelete.getNext().setNext( toDelete.getPrevious() );
-                if(toDelete == current)
+                prev = (CustomDoubleLink) toDelete.getNext();
+                prev.setPrevious( toDelete.getPrevious() );
+                
+                
+                if( toDelete == current )
                     current = (CustomDoubleLink)current.getNext();
+                
                 return toDelete;
             }
+            else 
+                return null;
         }
         return null;
     }
     
     public CustomDoubleLink deleteFirst()
     {
-        if( current.getNext() == current && current.getPrevious() == current )
+        if( !this.isEmpty() )
         {
+            if( current.getNext() == current && current.getPrevious() == current )
+            {
             CustomDoubleLink temp = current;
             current = null;
             return temp;
-        }
-        
-        if( !this.isEmpty() )
-        {
+            }
+            
             CustomDoubleLink prev, toDelete = current;
             prev = (CustomDoubleLink) current.getNext();
             prev.setPrevious( current.getPrevious() );
@@ -166,6 +177,4 @@ public class CircularDoubleLkdLst {
         }
         return null;
     }
-    
-    
 }
