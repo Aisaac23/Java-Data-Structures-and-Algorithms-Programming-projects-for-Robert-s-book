@@ -1,4 +1,4 @@
-package doublyLinked;
+package LinkedLists;
 
 import Links.*;
 // doublyLinked.java
@@ -19,10 +19,10 @@ class DoublyLinkedList
     public boolean isEmpty()
     { return first==null; }
     
-    public void insertFirst(long dd)
+    
+    
+    public void insertFirst(DoubleLink newLink)
     {
-        DoubleLink newLink = new DoubleLink(dd);
-
         if( isEmpty() )
             last = newLink;
         else
@@ -31,9 +31,8 @@ class DoublyLinkedList
         first = newLink;
     }
     
-    public void insertLast(long dd)
+    public void insertLast(DoubleLink newLink)
     {
-        DoubleLink newLink = new DoubleLink(dd);
         if( isEmpty() )
             first = newLink;
         else
@@ -50,9 +49,9 @@ class DoublyLinkedList
         if(first.getNext() == null)
             last = null;
         else
-        {   
-            DoubleLink prev = (DoubleLink)( first.getNext() );
-            prev.setPrevious(null);
+        {
+            DoubleLink toDelete = (DoubleLink)first.getNext();
+            toDelete.setPrevious(null);
         }
         first = (DoubleLink)first.getNext();
         return temp;
@@ -68,62 +67,69 @@ class DoublyLinkedList
         last = last.getPrevious();
         return temp;
     }
-    /* Eliminating bellow methods since they shouldn't be accessible for subclass: LinkedDeQueue
-    public boolean insertAfter(long key, long dd)
+     //Eliminating bellow methods since they shouldn't be accessible for subclass: LinkedDeQueue
+    public boolean insertAfter(DoubleLink newLink, long key)
     {                             
-        Link current = first;
-        while(current.dData != key)
+        DoubleLink current = first;
+        while(current.getiData() != key)
         {
-            current = current.next; 
+            current = (DoubleLink) current.getNext(); 
             if(current == null)
                 return false; 
-        }
-        Link newLink = new Link(dd); 
-        if(current==last) 
+        } 
+        if( current == last ) 
         {
-            newLink.next = null; 
+            newLink.setNext(null);
             last = newLink; 
         }
         else     
         {
-            newLink.next = current.next; 
-            current.next.previous = newLink;
+            newLink.setNext(current.getNext());
+            DoubleLink temp = (DoubleLink) current.getNext();
+            temp.setPrevious(newLink);
         }
-        newLink.previous = current;    
-        current.next = newLink;  
+        
+        newLink.setPrevious(current);    
+        current.setNext(newLink);  
         return true;  
     }
+    
     public Link deleteKey(long key)
     {                             
-        Link current = first; 
-        while(current.dData != key)
+        DoubleLink current = first; 
+        while(current.getiData() != key)
         {
-            current = current.next;
+            current = (DoubleLink)current.getNext();
             if(current == null)
                 return null;
         }
         if(current==first)
-            first = current.next;
+            first = (DoubleLink)current.getNext();
         else
-            current.previous.next = current.next;
+            current.getPrevious().setNext( current.getNext() );
+
         if(current==last)
-            last = current.previous;
+            last = current.getPrevious();
         else
-            current.next.previous = current.previous;
+        {
+            DoubleLink temp = (DoubleLink) current.getNext();
+            temp.setPrevious( current.getPrevious() );
+        }
+        
         return current;
     }
     public void displayBackward()
     {
         System.out.print("List (last-->first): ");
-        Link current = last;           
+        DoubleLink current = last;           
         while(current != null)         
         {
             current.displayLink(); 
-            current = current.previous; 
+            current = (DoubleLink) current.getPrevious(); 
         }
-        System.out.println("");
+        System.out.println("NULL");
     }
-*/
+
     public void displayForward()
     {
         System.out.print("List (first-->last): ");
@@ -131,7 +137,7 @@ class DoublyLinkedList
         while(current != null)
         {
             current.displayLink();
-            current = (DoubleLink) current.getNext();
+            current = (DoubleLink)current.getNext();
             System.out.print("<->");
         }
         System.out.println("NULL");
@@ -173,19 +179,20 @@ class LinkedDeQueue extends DoublyLinkedList
 class DoublyLinkedApp
 {
     public static void main(String[] args)
-    {      
+    {
+        System.out.println("Doubly Linked DeQueue:");
         long maxSize = 100;
         int queueSize = 20;
         LinkedDeQueue theList = new LinkedDeQueue();
 
         System.out.println("Inserting on the right-side: ");
         for (int i = 0; i < queueSize; i++)
-            theList.insertFirst( (long)(Math.random()*maxSize) );
+            theList.insertFirst( new DoubleLink ((long)(Math.random()*maxSize)) );
         theList.displayForward();
         
         System.out.println("Inserting on the left-side: ");
         for (int i = 0; i < queueSize; i++)
-            theList.insertLast( (long)(Math.random()*maxSize) );
+            theList.insertLast( new DoubleLink ((long)(Math.random()*maxSize)) );
         theList.displayForward();
         
         System.out.println("Deleting from the right-side: ");
