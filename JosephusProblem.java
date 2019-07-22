@@ -36,7 +36,7 @@ public class JosephusProblem {
         while(this.JosephusCircle.getCurrent().getNext() != this.JosephusCircle.getCurrent())
         {
             Link temp =  (CustomLink) this.deleteSpin(killer);
-            eliminated.insertFirst(temp.getiData());
+            eliminated.insertFirst(temp);
             System.out.print("Eliminated: ");
             temp.displayLink();
             System.out.println("");
@@ -65,9 +65,9 @@ public class JosephusProblem {
     
     public static void main(String[] args)
     {
-        JosephusProblem prob = new JosephusProblem(7);
+        JosephusProblem prob = new JosephusProblem(10);
         
-        prob.JosephusProblem(3, 1).displayList();
+        prob.JosephusProblem(5, 1).displayList();
         
         prob.getJosephusCircle().display();
     }
