@@ -16,7 +16,7 @@ public class DoubleLink extends Link
     public DoubleLink(long id) {
         super(id);
     }
-
+    
     public DoubleLink getPrevious() {
         return previous;
     }
@@ -24,6 +24,4 @@ public class DoubleLink extends Link
     public void setPrevious(DoubleLink previous) {
         this.previous = previous;
     }
-
-    
 }

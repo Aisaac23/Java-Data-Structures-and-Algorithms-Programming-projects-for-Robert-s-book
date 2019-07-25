@@ -13,20 +13,20 @@ package Links;
  */
 public class Link {
     
-    private long dData;                  
+    private long iData;                  
     private Link next;                   
    
-    public Link(long dd)                
-    { dData = dd; }
+    public Link(long id)                
+    { iData = id; }
    
     public void displayLink()           
-    { System.out.print("{" + dData + "}"); }
+    { System.out.print("{" + iData + "}"); }
 
-    public long getdData() { return dData; }
+    public long getiData() { return iData; }
 
     public Link getNext() { return next; }
 
-    public void setdData(long dData) { this.dData = dData; }
+    public void setiData(long dData) { this.iData = dData; }
 
     public void setNext(Link next) { this.next = next; }
 }
