@@ -7,6 +7,7 @@ package LinkedLists;
 
 import Links.DoubleLink;
 
+
 /**
  *
  * @author Isaac
@@ -20,12 +21,16 @@ public class Cell extends DoubleLink{
     public Cell(long id, long column) {
         super(id);
         this.column = column;
-        this.value = " ";
+        this.value = "  ";
     }
 
     @Override
     public void displayLink() {
         System.out.print("[" + this.value + "]@" + "(" + this.getiData() + "," + this.column + ")");
+    }
+    
+    public void displayCell() {
+        System.out.print("[" + this.value + "]");
     }
 
     public long getColumn() {
