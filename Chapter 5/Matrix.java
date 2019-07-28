@@ -152,6 +152,23 @@ public class Matrix extends DoublyLinkedList{
             long newRow = (long)(Math.random()*rows + 1);
             matrixInstance.insertAfter(new Row( newRow+1, matrixInstance.getColumns() ), newRow);
         }
+        System.out.println("Display matrix as Spreadsheet:");
+        matrixInstance.displayAsSpreadsheet();
+        
+        System.out.println("Inserting Longs at random:");
+        
+        for (int i = 0; i < matrixInstance.getRows(); i++) 
+            matrixInstance.InsertInCell( (long)(Math.random()*matrixInstance.getRows() + 1), 
+                    (long)(Math.random()*cols + 1),  (long)(Math.random()*matrixInstance.getRows())  );
+        
+        System.out.println("Display matrix as Spreadsheet:");
+        matrixInstance.displayAsSpreadsheet();
+        
+        System.out.println("Inserting Doubles at random:");
+        
+        for (int i = 0; i < matrixInstance.getRows(); i++) 
+            matrixInstance.InsertInCell( (long)(Math.random()*matrixInstance.getRows() + 1), 
+                    (long)(Math.random()*cols + 1), (Math.random()*matrixInstance.getRows())  );
        
         System.out.println("Display matrix as Spreadsheet:");
         matrixInstance.displayAsSpreadsheet();
