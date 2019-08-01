@@ -6,12 +6,6 @@ package Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author isaac.huerta
- */
-/*********** Programming Projects: 4.5 ***********************/
-
 public class SuperMarket extends Thread {
 
     private final int Ncashiers = 8;
