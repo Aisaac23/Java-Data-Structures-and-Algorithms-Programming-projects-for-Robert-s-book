@@ -4,11 +4,6 @@
 
 package Queue;
 
-/**
- *
- * @author Isaac
- */
-
 /*********** Programming Projects: 4.4 ***********************/
 public class PriorityQ extends Queue{
 
