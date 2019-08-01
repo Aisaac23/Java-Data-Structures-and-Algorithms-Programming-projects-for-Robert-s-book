@@ -6,11 +6,6 @@ package LinkedLists;
 
 import Links.DoubleLink;
 
-
-/**
- *
- * @author Isaac
- */
 public class Cell extends DoubleLink{
     
     
