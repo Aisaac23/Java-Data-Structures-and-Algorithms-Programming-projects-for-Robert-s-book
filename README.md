@@ -27,4 +27,21 @@ PriorityQ.java
 
 ## Chapter 5 (Linked Lists):
 
+Cell.java
+CircularDoubleLkdLst.java
 CircularList.java
+CircularQueue.java
+CircularStack.java
+CustomDoubleLink.java
+CustomLink.java
+DoubleLink.java
+JosephusProblem.java
+Link.java
+LinkList.java
+Matrix.java
+Row.java
+doublyLinked.java
+sortedList.java
+
+
+
