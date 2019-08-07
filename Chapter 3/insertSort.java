@@ -125,7 +125,7 @@ public void noDupsInsertSort()
     }
     nElems = nElems - dups;      
 }
-//************************* Programming Projects: 3.3 *****************
+//************************************************************************
 
     
 //************************* Programming Projects: 3.5 *****************
@@ -191,7 +191,7 @@ class InsertSortApp
             arr.insert((long)(Math.random()*maxSize));
       for (int i = 0; i < maxSize; i++)
             arr2.insert((long)(Math.random()*maxSize));
-    //************************* Testing Programming Projects: 3.1, 3.2, 3.3 & 3.5 *****************
+    //************************* Testing Programming Projects: 3.2, 3.3 & 3.5 *****************
     System.out.println("Unsorted array:");
     arr.display();
     System.out.println("Median: " + arr.median());
