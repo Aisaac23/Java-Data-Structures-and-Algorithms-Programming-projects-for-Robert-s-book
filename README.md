@@ -19,12 +19,12 @@ Java Data Structures and Algorithms Programming projects from Robert Lafore's Bo
 
 ## Chapter 4 (Staks and Queues):
 
-queue.java
-
-SuperMarket.java
-
-PriorityQ.java
-
+ 1. queue.java
+    - Programming projects: 4.1 - 4.5
+ 2. SuperMarket.java
+    - Programming projects: 4.5
+ 3. PriorityQ.java
+    - Programming projects: 4.4
 
 ## Chapter 5 (Linked Lists):
 
