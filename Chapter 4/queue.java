@@ -11,8 +11,8 @@ class Queue
     protected int front;
     protected int rear;
     protected int nItems;
-//--------------------------------------------------------------
-    public Queue(int s)       
+    
+  public Queue(int s)       
     {
         maxSize = s;
         queArray = new long[maxSize];
@@ -20,7 +20,7 @@ class Queue
         rear = -1;
         nItems = 0;
     }
-//--------------------------------------------------------------
+
     public void insert(long j)   
     {
         if(rear == maxSize-1)         
@@ -28,7 +28,7 @@ class Queue
         queArray[++rear] = j;         
         nItems++;                     
     }
-//--------------------------------------------------------------
+
     public long remove()         
     {
         long temp = queArray[front++]; 
@@ -37,22 +37,22 @@ class Queue
         nItems--;  
         return temp;
     }
-//--------------------------------------------------------------
+
     public long peekFront()      
     {
         return queArray[front];
     }
-//--------------------------------------------------------------
+
     public boolean isEmpty()   
     {
         return (nItems==0);
     }
-//--------------------------------------------------------------
+ 
     public boolean isFull()  
     {
         return (nItems==maxSize);
     }
-//--------------------------------------------------------------
+
     public int size()
     {
         return nItems;
