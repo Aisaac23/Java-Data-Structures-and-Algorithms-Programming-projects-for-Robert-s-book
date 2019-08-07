@@ -28,21 +28,32 @@ Java Data Structures and Algorithms Programming projects from Robert Lafore's Bo
 
 ## Chapter 5 (Linked Lists):
 
-Cell.java
-CircularDoubleLkdLst.java
-CircularList.java
-CircularQueue.java
-CircularStack.java
-CustomDoubleLink.java
-CustomLink.java
-DoubleLink.java
-JosephusProblem.java
-Link.java
-LinkList.java
-Matrix.java
-Row.java
-doublyLinked.java
-sortedList.java
-
-
-
+ 1. Cell.java
+ 
+ 2. CircularDoubleLkdLst.java
+ 
+ 3. CircularList.java
+ 
+ 4. CircularQueue.java
+ 
+ 5. CircularStack.java
+ 
+ 6. CustomDoubleLink.java
+ 
+ 7. CustomLink.java
+ 
+ 8. DoubleLink.java
+ 
+ 9. JosephusProblem.java
+ 
+ 10. Link.java
+ 
+ 11. LinkList.java
+ 
+ 12. Matrix.java
+ 
+ 13. Row.java
+ 
+ 14. doublyLinked.java
+ 
+ 15. sortedList.java
